@@ -34,17 +34,18 @@ const DealForm = (props: DealFormProps) => {
       setErrors({ ...errors, [property]: "Field is required for valid submission" })
       setValidDeal(false)
     } else {
+      //could be cleaner/more concise here
       if (property === "dealSize") {
-        if (isNaN(parseFloat(e.target.value))) {
+        if (isNaN(e.target.value)) {
           setErrors({ ...errors, [property]: "Deal Size must be a number" })
         }
         else {
           setErrors({ ...errors, [property]: "" })
         }
       }
-      if (newDeal.institution !== "" && newDeal.dealType !== "" && newDeal.dealSize !== "") {
+      if (newDeal.institution !== "" && newDeal.dealType !== "" && newDeal.dealSize !== "" && !isNaN(e.target.value)) {
+        
         setErrors({ ...errors, [property]: "" })
-      } else {
         setValidDeal(true)
       }
     }
