@@ -1,4 +1,4 @@
-import { CREATE_DEAL } from "./actions";
+import { CREATE_DEAL, REMOVE_DEAL, UPDATE_DEAL } from "./actions";
 import { DealType, DealsListType } from "../types";
 
 let nextDealId = 3;
@@ -33,6 +33,16 @@ export default (state = initialState, action: ActionType) => {
       return {
         ...state,
         deals: [...state.deals, { ...action.payload.deal, id: nextDealId++ }],
+      };
+    case REMOVE_DEAL:
+      return {
+        ...state,
+        deals: state.deals.filter(deal => deal.id !== action.payload.deal.id),
+      };
+    case UPDATE_DEAL:
+      return {
+        ...state,
+        deals: state.deals.map(deal => deal.id === action.payload.deal.id ? action.payload.deal : deal),
       };
     default:
       return state;

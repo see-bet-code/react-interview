@@ -2,6 +2,7 @@ import React from "react";
 import { DealsListType } from "../../types";
 import DealsTableRow from "./DealsTableRow/DealsTableRow";
 import "./DealsTable.scss";
+import SortIcon from "../../assets/SortIcon";
 
 type DealsTableProps = DealsListType;
 
@@ -16,10 +17,11 @@ const DealsTable = (props: DealsTableProps) => {
       <table className='DealsTable'>
         <thead>
           <tr>
-            <th className='DealsTable--headerCell'>Institution</th>
-            <th className='DealsTable--headerCell'>Deal Type</th>
-            <th className='DealsTable--headerCell'>Deal Size</th>
-            <th className='DealsTable--headerCell'>Is Published?</th>
+            <th className='DealsTable--headerCell'>Institution <SortIcon/></th>
+            <th className='DealsTable--headerCell'>Deal Type <SortIcon/></th>
+            <th className='DealsTable--headerCell'>Deal Size <SortIcon/></th>
+            <th className='DealsTable--headerCell'>Is Published? <SortIcon/></th>
+            <th className='DealsTable--headerCell'>Actions <SortIcon/></th>
           </tr>
         </thead>
         <tbody>{dealsTableRows}</tbody>
