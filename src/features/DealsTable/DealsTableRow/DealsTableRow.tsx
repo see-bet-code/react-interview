@@ -18,7 +18,6 @@ type DealsTableRowProps = {
 const DealsTableRow = (props: DealsTableRowProps) => {
   const {
     deal: { institution, dealType, dealSize, isPublished },
-
   } = props;
 
   const handleRemoveDeal = () => {
@@ -38,10 +37,10 @@ const DealsTableRow = (props: DealsTableRowProps) => {
       </td>
       <td className='DealsTableRow--cell'>{isPublished ? "Yes" : "No"}</td>
       <td className='DealsTableRow--cell'>
-      <button className='DealsTableRow--button' onClick={handleRemoveDeal}>
+      <button className='DealsTableRow--removeButton' onClick={handleRemoveDeal}>
         Remove Deal
       </button>
-      <button className='DealsTableRow--button' onClick={handlePublishDeal}>
+      <button className='DealsTableRow--button' disabled={isPublished} onClick={handlePublishDeal}>
         Publish
       </button>
       </td>

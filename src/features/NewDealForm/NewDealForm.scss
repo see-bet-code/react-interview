@@ -14,8 +14,27 @@
     font-size: $BodySmall;
   }
 
+  /* overly simplistic solution. Only works here because ALL 
+    fields are required, would need to revisit if form changes
+  */
+  &--label:after {
+    color: red;
+    content: " *";
+  }
+
   &--button {
     margin-top: 8px;
     align-self: flex-end;
+  }
+
+  .required {
+    color: red;
+    font-size: 10px;
+  }
+
+  &--button:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
   }
 }
